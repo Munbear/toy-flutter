@@ -54,7 +54,7 @@ class CupertinoStoreHomePage extends StatelessWidget {
           case 1:
             returnValue = CupertinoTabView(builder: (context) {
               return const CupertinoPageScaffold(
-                child: ShoppingCartTab(),
+                child: SearchTab(),
               );
             });
             break;
