@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../model/test_model.dart';
 import 'high.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -31,8 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Home screen'),
-                        Text('empty'),
+                        Text('Fish Order'),
+                        Text(
+                            'Fish name: ${Provider.of<FishModel>(context).name}'),
                         Text('empty'),
                       ],
                     ),

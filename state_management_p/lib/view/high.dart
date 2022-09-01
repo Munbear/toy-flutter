@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:state_management_p/view/spicy_a.dart';
+
+import '../model/test_model.dart';
 
 class High extends StatelessWidget {
   const High({Key? key}) : super(key: key);
@@ -18,8 +21,14 @@ class High extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('this is the High Screen'),
-                  Text('empty'),
-                  Text('empty'),
+                  Text(
+                    'Fish number: ${Provider.of<FishModel>(context).number}',
+                    style: TextStyle(
+                        color: Color(0xffffffff),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text('Fish size: ${Provider.of<FishModel>(context).size}'),
                 ],
               ),
             ),

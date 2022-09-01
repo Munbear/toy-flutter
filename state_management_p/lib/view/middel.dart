@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../model/seafish_model.dart';
 import '../model/test_model.dart';
-import 'middel.dart';
 
-class SpicyA extends StatelessWidget {
-  const SpicyA({Key? key}) : super(key: key);
+class Middle extends StatefulWidget {
+  const Middle({Key? key}) : super(key: key);
 
+  @override
+  State<Middle> createState() => _MiddleState();
+}
+
+class _MiddleState extends State<Middle> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,33 +19,32 @@ class SpicyA extends StatelessWidget {
           child: Container(
             width: 200,
             height: 200,
-            color: Colors.blue,
+            color: Colors.green,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('this is the Spicy_A Screen'),
+                  Text('this is the Middle Screen'),
                   Text(
-                    'Fish number ${Provider.of<FishModel>(context).number}',
+                    'Tuna number: ${Provider.of<SeaFishModel>(context).tunaNumber}',
                     style: TextStyle(
                         color: Color(0xffffffff),
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text('Fish size: ${Provider.of<FishModel>(context).size}'),
+                  Text('Tuna size: ${Provider.of<SeaFishModel>(context).size}'),
                   ElevatedButton(
                     onPressed: () {
-                      Provider.of<FishModel>(context, listen: false)
-                          .changeFishNumber();
+                      Provider.of<SeaFishModel>(context, listen: false)
+                          .changeSeaFishNumber();
                     },
-                    child: Text('Salmon Fish Button'),
-                  ),
+                    child: Text('Sea fish number'),
+                  )
                 ],
               ),
             ),
           ),
         ),
-        Middle(),
       ],
     );
   }
