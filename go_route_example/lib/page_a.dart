@@ -14,11 +14,11 @@ class MyPageA extends StatelessWidget {
             Container(
               width: 100,
               height: 100,
-              color: Colors.red,
+              color: Colors.blue,
               child: ElevatedButton(
-                onPressed: () => context.pushNamed('page2'),
+                onPressed: () => context.pop(),
                 child: const Text(
-                  'Page A',
+                  'Page back',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -26,11 +26,11 @@ class MyPageA extends StatelessWidget {
             Container(
               width: 100,
               height: 100,
-              color: Colors.blue,
+              color: Colors.red,
               child: ElevatedButton(
-                onPressed: () => context.pop(),
+                onPressed: () => context.pushNamed('page2'),
                 child: const Text(
-                  'Page back',
+                  'Page A',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),

@@ -16,9 +16,9 @@ class MyPageC extends StatelessWidget {
               height: 100,
               color: Colors.blue,
               child: ElevatedButton(
-                onPressed: () => context.pushNamed('home'),
+                onPressed: () => context.pop(),
                 child: const Text(
-                  'Page C',
+                  'Page back',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -28,9 +28,9 @@ class MyPageC extends StatelessWidget {
               height: 100,
               color: Colors.blue,
               child: ElevatedButton(
-                onPressed: () => context.pop(),
+                onPressed: () => context.pushNamed('home'),
                 child: const Text(
-                  'Page back',
+                  'Page C',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),

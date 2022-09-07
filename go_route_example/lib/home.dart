@@ -14,14 +14,28 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          color: Colors.yellow,
-          child: ElevatedButton(
-            onPressed: () => context.pushNamed('page1'),
-            child: const Text('home page'),
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.yellow,
+              child: ElevatedButton(
+                onPressed: () => context.pop(),
+                child: const Text('page back'),
+              ),
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.yellow,
+              child: ElevatedButton(
+                onPressed: () => context.pushNamed('page1'),
+                child: const Text('home page'),
+              ),
+            ),
+          ],
         ),
       ),
     );
