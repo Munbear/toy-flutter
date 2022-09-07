@@ -7,6 +7,8 @@ class Note with _$Note {
     required String title,
     required String body,
   }) = _Note;
+
+  get id => null;
 }
 
 @freezed
