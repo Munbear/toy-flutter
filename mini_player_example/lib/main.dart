@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'screens/home.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+// final _navigatorKey = GlobalKey();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
