@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:miniplayer/miniplayer.dart';
+import 'package:miniplayer_example_02/utils.dart';
+
+final ValueNotifier<double> playerExpandProgress = ValueNotifier(playerMinHeight);
+ValueNotifier<ListObject>? currentlyPlaying = ValueNotifier(null);
+double playerMinHeight = 70;
+double playerMaxHeight = 370;
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -41,8 +47,8 @@ class _HomeState extends State<Home> {
             Offstage(
               offstage: isShowed,
               child: Miniplayer(
-                valueNotifier: ValueNotifier(MediaQuery.of(context).size.height),
-                minHeight: 70,
+                valueNotifier: playerExpandProgress,
+                minHeight: playerMinHeight,
                 maxHeight: MediaQuery.of(context).size.height,
                 builder: (context, index) {
                   return Center(
@@ -86,6 +92,11 @@ class _HomeState extends State<Home> {
                   );
                 },
               ),
+            ),
+            ValueListenableBuilder(
+              valueListenable: currentlyPlaying,
+              builder: (BuildContext context, ListObject? listObject, Widget? child) =>
+                  listObject != null ? DetailedPlayer(listObject: listObject) : Container(),
             ),
           ],
         ),
