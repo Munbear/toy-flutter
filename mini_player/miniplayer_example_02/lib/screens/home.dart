@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
-                          height: 70,
+                          height: 250,
                           color: Colors.red,
                           child: IconButton(
                             onPressed: () {
