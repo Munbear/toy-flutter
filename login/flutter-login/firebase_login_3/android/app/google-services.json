@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "462496717566",
+    "project_id": "practice-login-cli-1",
+    "storage_bucket": "practice-login-cli-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462496717566:android:fe6569f62409a946ff23af",
+        "android_client_info": {
+          "package_name": "com.example.firebase_login_3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462496717566-88gs29b7b6g2iacjcich4snbf7nt340s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABXYJNTK4E6YX_98HxLVjOo-fDbHHIjYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462496717566-88gs29b7b6g2iacjcich4snbf7nt340s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "462496717566-euebglqgko1j77aahd327j3uk6nlf06u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseLogin3"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
