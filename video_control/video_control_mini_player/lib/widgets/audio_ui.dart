@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/player_util.dart';
-import 'play_list.dart';
+import 'audio_tile.dart';
 import 'thumnail_list.dart';
 
 typedef OnTap(final AudioObject audioObject);
