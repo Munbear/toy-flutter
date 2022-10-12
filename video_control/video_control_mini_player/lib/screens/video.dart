@@ -64,7 +64,7 @@ class _VideoScreenState extends State<VideoScreen> {
                     Duration targetPositoin = currentPostion - Duration(seconds: 10);
                     _controller.seekTo(targetPositoin);
                   },
-                  icon: Icon(Icons.skip_previous)),
+                  icon: const Icon(Icons.skip_previous)),
               IconButton(
                 onPressed: () {
                   setState(() {
@@ -82,10 +82,10 @@ class _VideoScreenState extends State<VideoScreen> {
               IconButton(
                 onPressed: () {
                   Duration currentPostion = _controller.value.position;
-                  Duration targetPositoin = currentPostion + Duration(seconds: 10);
+                  Duration targetPositoin = currentPostion + const Duration(seconds: 10);
                   _controller.seekTo(targetPositoin);
                 },
-                icon: Icon(Icons.skip_next),
+                icon: const Icon(Icons.skip_next),
               ),
             ],
           ),

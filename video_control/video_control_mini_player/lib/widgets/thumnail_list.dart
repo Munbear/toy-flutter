@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../utils.dart';
-import '../widgets/play_list.dart';
-
-typedef OnTap(final AudioObject audioObject);
+import '../utils/player_util.dart';
 
 const Set<AudioObject> audioExamples = {
   AudioObject('Salt & Pepper', 'Dope Lemon', 'https://m.media-amazon.com/images/I/81UYWMG47EL._SS500_.jpg'),
@@ -18,22 +13,3 @@ const Set<AudioObject> audioExamples = {
   AudioObject(
       'Ego Death', 'Ty Dolla \$ign, Kanye West, FKA Twigs, Skrillex', 'https://static.stereogum.com/uploads/2020/06/Ego-Death-1593566496.jpg'),
 };
-
-class AudioUi extends StatelessWidget {
-  final OnTap onTap;
-  const AudioUi({super.key, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.all(0),
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 10, bottom: 6, top: 15),
-          child: Text('Your Libray'),
-        ),
-        for (AudioObject a in audioExamples) AudioListTile(audioObject: a, onTap: () => onTap(a))
-      ],
-    );
-  }
-}

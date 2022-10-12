@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:miniplayer/miniplayer.dart';
 
-import '../screens/Home.dart';
-import '../screens/video.dart';
-import '../utils.dart';
+import 'Home.dart';
+import 'video.dart';
+import '../utils/player_util.dart';
 
 final ValueNotifier<double> playerExpandProgress = ValueNotifier(playerMinHeight);
 
@@ -36,8 +36,10 @@ class DetailedPlayer extends StatelessWidget {
             icon: Icon(Icons.pause),
             onPressed: onTap,
           );
+
           final progressIndicator = LinearProgressIndicator(value: 0.3);
 
+          // full screen
           if (!miniplayer) {
             var percentageExpandedPlayer = percentageFromValueInRange(
               min: playerMaxHeight * miniplayerPercentageDeclaration + playerMinHeight,
@@ -56,7 +58,7 @@ class DetailedPlayer extends StatelessWidget {
             final paddingLeft = valueFromPercentageInRange(min: 0, max: width - imageSize, percentage: percentageExpandedPlayer) / 2;
 
             const buttonSkipForward = IconButton(
-              icon: Icon(Icons.forward_30),
+              icon: Icon(Icons.forward_10),
               iconSize: 33,
               onPressed: onTap,
             );
@@ -71,6 +73,7 @@ class DetailedPlayer extends StatelessWidget {
               onPressed: onTap,
             );
 
+            // full screen 상태일때의 화면
             return Column(
               children: [
                 Align(
@@ -92,20 +95,19 @@ class DetailedPlayer extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               height: 100,
                               width: double.infinity,
-                              color: Colors.red,
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => VideoScreen(),
+                                      builder: (context) => const VideoScreen(),
                                     ),
                                   );
                                 },
-                                child: Text('to the Video'),
+                                child: const Text('to the Video'),
                               ),
                             ),
                           ),
@@ -131,13 +133,11 @@ class DetailedPlayer extends StatelessWidget {
             );
           }
 
-          //Miniplayer
+          //Miniplayer 상태 화면
           final percentageMiniplayer = percentageFromValueInRange(
               min: playerMinHeight, max: playerMaxHeight * miniplayerPercentageDeclaration + playerMinHeight, value: height);
-
           final elementOpacity = 1 - 1 * percentageMiniplayer;
           final progressIndicatorHeight = 4 - 4 * percentageMiniplayer;
-
           return Column(
             children: [
               Expanded(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../utils.dart';
-import '../widgets/player.dart';
-import 'audio.dart';
+import '../utils/player_util.dart';
+import 'player.dart';
+import '../widgets/audio.dart';
 
 ValueNotifier<AudioObject?> currentlyPlaying = ValueNotifier(null);
 
