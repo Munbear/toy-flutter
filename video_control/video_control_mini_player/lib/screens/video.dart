@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -16,13 +14,11 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.asset('assets/example_video.mp4')
-      ..initialize().then((_) {
-        setState(() {});
-      });
+    _controller = VideoPlayerController.asset('assets/video_bear.mp4');
     _initializaVideoPlayerFuture = _controller.initialize();
-    // _controller.setLooping(true);
+    _controller.setLooping(true);
     super.initState();
+    _controller.play();
   }
 
   @override
@@ -53,37 +49,53 @@ class _VideoScreenState extends State<VideoScreen> {
                     child: VideoPlayer(_controller),
                   );
                 } else {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
               },
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Duration currentPostion = _controller.value.position;
+                    Duration targetPositoin = currentPostion - Duration(seconds: 10);
+                    _controller.seekTo(targetPositoin);
+                  },
+                  icon: Icon(Icons.skip_previous)),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    if (_controller.value.isPlaying) {
+                      _controller.pause();
+                    } else {
+                      _controller.play();
+                    }
+                  });
+                },
+                icon: Icon(
+                  (_controller.value.isPlaying ? Icons.pause : Icons.play_arrow),
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  Duration currentPostion = _controller.value.position;
+                  Duration targetPositoin = currentPostion + Duration(seconds: 10);
+                  _controller.seekTo(targetPositoin);
+                },
+                icon: Icon(Icons.skip_next),
+              ),
+            ],
+          ),
           Center(
             child: ElevatedButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('back to Home Screen'),
+              child: const Text('back to Home Screen'),
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // 재생/일시 중지 기능을 `setState` 호출로 감쌉니다. 이렇게 함으로써 올바른 아이콘이
-          // 보여집니다.
-          setState(() {
-            // 영상이 재생 중이라면, 일시 중지 시킵니다.
-            if (_controller.value.isPlaying) {
-              _controller.pause();
-            } else {
-              // 만약 영상이 일시 중지 상태였다면, 재생합니다.
-              _controller.play();
-            }
-          });
-        },
-        // 플레이어의 상태에 따라 올바른 아이콘을 보여줍니다.
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
       ),
     );
   }
