@@ -99,6 +99,24 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               );
             },
             child: const Text("next page"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TestPage()),
+              );
+            },
+            child: const Text("next page"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TestPage()),
+              );
+            },
+            child: const Text("next page"),
           )
         ],
       ),
